@@ -11,6 +11,10 @@
 		7A2C149E27A16CAE00E2803E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2C149D27A16CAE00E2803E /* ContentView.swift */; };
 		7A2C14A027A16CB000E2803E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A2C149F27A16CB000E2803E /* Assets.xcassets */; };
 		7A2C14A327A16CB000E2803E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A2C14A227A16CB000E2803E /* Preview Assets.xcassets */; };
+		7A2C14AA27A16CC500E2803E /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2C14A927A16CC500E2803E /* ImagePicker.swift */; };
+		7A2C14B027A1721500E2803E /* ImageDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2C14AF27A1721500E2803E /* ImageDataModel.swift */; };
+		7A2C14B327A173B600E2803E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2C14B227A173B600E2803E /* HomeView.swift */; };
+		7A2C14B727A1764A00E2803E /* NoteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2C14B627A1764A00E2803E /* NoteDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +23,10 @@
 		7A2C149D27A16CAE00E2803E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7A2C149F27A16CB000E2803E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A2C14A227A16CB000E2803E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7A2C14A927A16CC500E2803E /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		7A2C14AF27A1721500E2803E /* ImageDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDataModel.swift; sourceTree = "<group>"; };
+		7A2C14B227A173B600E2803E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		7A2C14B627A1764A00E2803E /* NoteDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +59,10 @@
 		7A2C149A27A16CAE00E2803E /* iReceipt */ = {
 			isa = PBXGroup;
 			children = (
+				7A2C14AC27A171EF00E2803E /* ImageData */,
 				7A2C149B27A16CAE00E2803E /* iReceiptApp.swift */,
-				7A2C149D27A16CAE00E2803E /* ContentView.swift */,
+				7A2C14B127A173AD00E2803E /* Views */,
+				7A2C14AB27A16CD100E2803E /* ImagePickerFeature */,
 				7A2C149F27A16CB000E2803E /* Assets.xcassets */,
 				7A2C14A127A16CB000E2803E /* Preview Content */,
 			);
@@ -65,6 +75,40 @@
 				7A2C14A227A16CB000E2803E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		7A2C14AB27A16CD100E2803E /* ImagePickerFeature */ = {
+			isa = PBXGroup;
+			children = (
+				7A2C14A927A16CC500E2803E /* ImagePicker.swift */,
+			);
+			path = ImagePickerFeature;
+			sourceTree = "<group>";
+		};
+		7A2C14AC27A171EF00E2803E /* ImageData */ = {
+			isa = PBXGroup;
+			children = (
+				7A2C14AD27A171FA00E2803E /* Model */,
+			);
+			path = ImageData;
+			sourceTree = "<group>";
+		};
+		7A2C14AD27A171FA00E2803E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7A2C14AF27A1721500E2803E /* ImageDataModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7A2C14B127A173AD00E2803E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7A2C14B227A173B600E2803E /* HomeView.swift */,
+				7A2C149D27A16CAE00E2803E /* ContentView.swift */,
+				7A2C14B627A1764A00E2803E /* NoteDetailView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +181,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A2C14AA27A16CC500E2803E /* ImagePicker.swift in Sources */,
+				7A2C14B027A1721500E2803E /* ImageDataModel.swift in Sources */,
 				7A2C149E27A16CAE00E2803E /* ContentView.swift in Sources */,
+				7A2C14B727A1764A00E2803E /* NoteDetailView.swift in Sources */,
+				7A2C14B327A173B600E2803E /* HomeView.swift in Sources */,
 				7A2C149C27A16CAE00E2803E /* iReceiptApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
