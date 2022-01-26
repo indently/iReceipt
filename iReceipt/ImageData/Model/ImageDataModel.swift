@@ -19,8 +19,8 @@ struct ImageNote : Codable, Hashable, Identifiable {
     private let IMAGES_KEY = "ImagesKey"
     var imageNote: [ImageNote] {
         didSet {
-            saveData()
             objectWillChange.send()
+            saveData()
         }
     }
     
@@ -37,7 +37,7 @@ struct ImageNote : Codable, Hashable, Identifiable {
     
     func addNote(image: UIImage, title: String, desc: String) {
         if let pngRepresentation = image.pngData() {
-            
+
             let tempNote = ImageNote(image: pngRepresentation, title: title, description: desc)
             imageNote.insert(tempNote, at: 0)
             print(imageNote)
@@ -45,10 +45,35 @@ struct ImageNote : Codable, Hashable, Identifiable {
         }
     }
     
+    func editNote(id: UUID, title: String, description: String) {
+    
+        if var note = imageNote.first(where: { $0.id == id }) {
+            let index = imageNote.firstIndex(of: note)
+        
+            objectWillChange.send()
+            imageNote[index!].title = title
+            imageNote[index!].description = description
+            
+            print(note)
+            print(imageNote)
+        }
+        
+
+    }
+    
     private func saveData() {
         if let encodedNotes = try? JSONEncoder().encode(imageNote) {
             UserDefaults.standard.set(encodedNotes, forKey: IMAGES_KEY)
         }
+    }
+    
+    func resetUserData() {
+        // Reset all the saved data
+        UserDefaults.standard.removeObject(forKey: "ImagesKey")
+
+        UserDefaults.resetStandardUserDefaults()
+        
+        imageNote = []
     }
     
 }

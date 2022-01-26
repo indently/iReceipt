@@ -13,7 +13,7 @@ struct HomeView: View {
     var body: some View {
         List {
             ForEach(imageData.imageNote) { note in
-                NavigationLink(destination: NoteDetailView(id: note.id)) {
+                NavigationLink(destination: NoteDetailView(title: note.title, desc: note.description, id: note.id)) {
  
                     HStack {
                         Image(uiImage: UIImage(data: note.image)!)

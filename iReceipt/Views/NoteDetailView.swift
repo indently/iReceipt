@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct NoteDetailView: View {
-    @State private var title = ""
-    @State private var content = ""
+    @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var imageData : ImageData
+    @State var title: String
+    @State var desc: String
     let id: UUID
     
     var body: some View {
@@ -17,13 +19,13 @@ struct NoteDetailView: View {
             Section {
                 TextField("Give your note a title", text: $title)
                 ZStack {
-                    TextEditor(text: $content)
+                    TextEditor(text: $desc)
                         .frame(height: 200)
                     VStack {
                         Spacer()
                         HStack {
                             Spacer()
-                            Text("\(content.count)/120")
+                            Text("\(desc.count)/120")
                                 .foregroundColor(.gray)
                                 .padding()
                         }
@@ -31,12 +33,14 @@ struct NoteDetailView: View {
                 }
                 HStack {
                     Spacer()
-                    Button("Add note!") {
-                        // add note
+                    Button("Confirm changes") {
+                        imageData.editNote(id: id, title: title, description: desc)
+                        presentationMode.wrappedValue.dismiss()
                     }
                     Spacer()
                 }
-                Text("\(id)")
+                
+                //Text("\(id)")
             }
         }
     }
@@ -44,6 +48,7 @@ struct NoteDetailView: View {
 
 struct NoteDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        NoteDetailView(id: UUID())
+        NoteDetailView(title: "Test", desc: "Test Desc",id: UUID())
+            .environmentObject(ImageData())
     }
 }

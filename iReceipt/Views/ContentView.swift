@@ -28,8 +28,8 @@ struct ContentView: View {
             .sheet(isPresented: $showImagePicker) {
                 ImagePicker(sourceType: .photoLibrary) { image in
                     imageData.addNote(image: image,
-                                      title: "Tap to edit this description",
-                                      desc: "Sample desc")
+                                      title: "Tap to edit this receipt!",
+                                      desc: "")
                     
                 }
             }
@@ -44,7 +44,7 @@ struct ContentView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         withAnimation {
-                            // Delete data
+                            imageData.resetUserData()
                         }
                     } label: {
                         Label("Image", systemImage: "trash")
