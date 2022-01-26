@@ -12,14 +12,32 @@ struct NoteDetailView: View {
     @EnvironmentObject var imageData : ImageData
     @State var title: String
     @State var desc: String
+    var image: Image
     let id: UUID
     
     var body: some View {
+
+        
         Form {
+            
             Section {
-                TextField("Give your note a title", text: $title)
+                HStack {
+                    Spacer()
+                    image
+                        .resizable()
+                        .frame(width: 300, height: 300, alignment: .center)
+                    
+                    Spacer()
+                }
+                TextField("Edit me!", text: $title)
+                    .textSelection(.enabled)
+                    .onTapGesture {
+                        self.title = ""
+                    }
+    
                 ZStack {
                     TextEditor(text: $desc)
+                        .textSelection(.enabled)
                         .frame(height: 200)
                     VStack {
                         Spacer()
@@ -48,7 +66,7 @@ struct NoteDetailView: View {
 
 struct NoteDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        NoteDetailView(title: "Test", desc: "Test Desc",id: UUID())
+        NoteDetailView(title: "Test", desc: "Test Desc",image: Image(systemName: "map"), id: UUID())
             .environmentObject(ImageData())
     }
 }

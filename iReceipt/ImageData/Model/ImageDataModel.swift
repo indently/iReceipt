@@ -46,7 +46,6 @@ struct ImageNote : Codable, Hashable, Identifiable {
     }
     
     func editNote(id: UUID, title: String, description: String) {
-    
         if var note = imageNote.first(where: { $0.id == id }) {
             let index = imageNote.firstIndex(of: note)
         
@@ -54,11 +53,9 @@ struct ImageNote : Codable, Hashable, Identifiable {
             imageNote[index!].title = title
             imageNote[index!].description = description
             
-            print(note)
-            print(imageNote)
+            //print(note)
+            //print(imageNote)
         }
-        
-
     }
     
     private func saveData() {

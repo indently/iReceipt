@@ -28,7 +28,7 @@ struct ContentView: View {
             .sheet(isPresented: $showImagePicker) {
                 ImagePicker(sourceType: .photoLibrary) { image in
                     imageData.addNote(image: image,
-                                      title: "Tap to edit this receipt!",
+                                      title: "Edit me!",
                                       desc: "")
                     
                 }

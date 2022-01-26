@@ -13,7 +13,11 @@ struct HomeView: View {
     var body: some View {
         List {
             ForEach(imageData.imageNote) { note in
-                NavigationLink(destination: NoteDetailView(title: note.title, desc: note.description, id: note.id)) {
+                NavigationLink(destination: NoteDetailView(
+                    title: note.title,
+                    desc: note.description,
+                    image: Image(uiImage: UIImage(data: note.image)!),
+                    id: note.id)) {
  
                     HStack {
                         Image(uiImage: UIImage(data: note.image)!)
@@ -25,12 +29,9 @@ struct HomeView: View {
                                 .lineLimit(2)
                         }
                     }
-                    
                 }
-                
             }
-        }
-        
+        }  
     }
 }
 
