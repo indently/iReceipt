@@ -16,10 +16,7 @@ struct NoteDetailView: View {
     let id: UUID
     
     var body: some View {
-
-        
         Form {
-            
             Section {
                 HStack {
                     Spacer()
