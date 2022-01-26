@@ -66,7 +66,6 @@ struct ImageNote : Codable, Hashable, Identifiable {
     func resetUserData() {
         // Reset all the saved data
         UserDefaults.standard.removeObject(forKey: "ImagesKey")
-
         UserDefaults.resetStandardUserDefaults()
         
         imageNote = []
