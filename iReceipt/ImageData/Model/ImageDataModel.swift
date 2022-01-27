@@ -51,9 +51,6 @@ struct ImageNote : Codable, Hashable, Identifiable {
         
             imageNote[index!].title = title
             imageNote[index!].description = description
-            
-            //print(note)
-            //print(imageNote)
         }
     }
     
