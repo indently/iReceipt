@@ -60,7 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				7A2C14AC27A171EF00E2803E /* ImageData */,
-				7A2C149B27A16CAE00E2803E /* iReceiptApp.swift */,
+				7A2C14AD27A171FA00E2803E /* Model */,
 				7A2C14B127A173AD00E2803E /* Views */,
 				7A2C14AB27A16CD100E2803E /* ImagePickerFeature */,
 				7A2C149F27A16CB000E2803E /* Assets.xcassets */,
@@ -88,7 +88,7 @@
 		7A2C14AC27A171EF00E2803E /* ImageData */ = {
 			isa = PBXGroup;
 			children = (
-				7A2C14AD27A171FA00E2803E /* Model */,
+				7A2C149B27A16CAE00E2803E /* iReceiptApp.swift */,
 			);
 			path = ImageData;
 			sourceTree = "<group>";
