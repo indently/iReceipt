@@ -8,39 +8,36 @@
 import SwiftUI
 
 struct NoteDetailView: View {
-    @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var imageData : ImageData
-    @State var title: String
-    @State var desc: String
-    var image: Image
-    let id: UUID
+    @State var note: ImageNote
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         Form {
             Section {
                 HStack {
                     Spacer()
-                    image
+                    Image(uiImage: UIImage(data: note.image)!)
                         .resizable()
                         .frame(width: 300, height: 300, alignment: .center)
                     
                     Spacer()
                 }
-                TextField("Edit me!", text: $title)
+                TextField("Edit me!", text: $note.title)
                     .textSelection(.enabled)
                     .onTapGesture {
-                        self.title = ""
+                        note.title = ""
                     }
     
                 ZStack {
-                    TextEditor(text: $desc)
+                    TextEditor(text: $note.description)
                         .textSelection(.enabled)
                         .frame(height: 200)
                     VStack {
                         Spacer()
                         HStack {
                             Spacer()
-                            Text("\(desc.count)/120")
+                            Text("\(note.description.count)/120")
                                 .foregroundColor(.gray)
                                 .padding()
                         }
@@ -49,13 +46,11 @@ struct NoteDetailView: View {
                 HStack {
                     Spacer()
                     Button("Confirm changes") {
-                        imageData.editNote(id: id, title: title, description: desc)
+                        imageData.editNote(id: note.id, title: note.title, description: note.description)
                         presentationMode.wrappedValue.dismiss()
                     }
                     Spacer()
                 }
-                
-                //Text("\(id)")
             }
         }
     }
@@ -63,7 +58,9 @@ struct NoteDetailView: View {
 
 struct NoteDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        NoteDetailView(title: "Test", desc: "Test Desc",image: Image(systemName: "map"), id: UUID())
+    let tempImage = UIImage(systemName: "map")?.pngData()
+        
+        NoteDetailView(note: ImageNote(id: UUID(), image: tempImage!, title: "Test", description: "Test Description"))
             .environmentObject(ImageData())
     }
 }
