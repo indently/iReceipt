@@ -104,8 +104,8 @@
 		7A2C14B127A173AD00E2803E /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7A2C14B227A173B600E2803E /* HomeView.swift */,
 				7A2C149D27A16CAE00E2803E /* ContentView.swift */,
+				7A2C14B227A173B600E2803E /* HomeView.swift */,
 				7A2C14B627A1764A00E2803E /* NoteDetailView.swift */,
 			);
 			path = Views;

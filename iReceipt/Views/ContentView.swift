@@ -7,14 +7,12 @@
 
 import SwiftUI
 
-
 struct ContentView: View {
     @StateObject var imageData = ImageData()
     @State var showImagePicker: Bool = false
     
     var body: some View {
         NavigationView {
-            
             VStack {
                 if imageData.imageNote.isEmpty {
                     Text("Try adding an image!")
@@ -30,7 +28,6 @@ struct ContentView: View {
                     imageData.addNote(image: image,
                                       title: "Edit me!",
                                       desc: "")
-                    
                 }
             }
             .toolbar {
@@ -55,7 +52,6 @@ struct ContentView: View {
         }
         .environmentObject(imageData)
     }
-    
 }
 
 struct ContentView_Previews: PreviewProvider {

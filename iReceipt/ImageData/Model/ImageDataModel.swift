@@ -28,7 +28,7 @@ struct ImageNote : Codable, Hashable, Identifiable {
         if let data = UserDefaults.standard.data(forKey: IMAGES_KEY) {
             if let decodedNotes = try? JSONDecoder().decode([ImageNote].self, from: data) {
                 imageNote = decodedNotes
-                print(imageNote)
+                print("Note data successfully retrieved!")
                 return
             }
         }
@@ -40,7 +40,7 @@ struct ImageNote : Codable, Hashable, Identifiable {
 
             let tempNote = ImageNote(image: pngRepresentation, title: title, description: desc)
             imageNote.insert(tempNote, at: 0)
-            print(imageNote)
+            print("Note added!")
             saveData()
         }
     }
@@ -67,5 +67,4 @@ struct ImageNote : Codable, Hashable, Identifiable {
         
         imageNote = []
     }
-    
 }
